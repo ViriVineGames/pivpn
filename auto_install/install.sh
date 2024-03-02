@@ -362,6 +362,13 @@ distroCheck() {
     fi
   fi
 
+# Workaround for Linux Mint Victoria
+# assumes results from lsb_release
+  [[ "${PLAT}" = "Linuxmint" ]] && PLAT="Ubuntu"
+
+  [[ "${OSCN}" = "victoria" ]] && OSCN="jammy"
+# end workaround
+
   case "${PLAT}" in
     Debian | Raspbian | Ubuntu)
       case "${OSCN}" in
